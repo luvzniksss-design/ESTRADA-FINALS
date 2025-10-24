@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Haven | Cake Shop</title>
+  <style>
+    /* RESET & FONTS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fff8f0;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* HEADER */
+    header {
+      background-color: #ffd6d6;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      color: #b64b4b;
+      font-size: 30px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b64b4b;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    #home {
+      background-color: #ffecec;
+      padding: 120px 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    #home h2 {
+      font-size: 42px;
+      color: #b64b4b;
+      margin-bottom: 15px;
+    }
+
+    #home p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* ABOUT */
+    #about {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      line-height: 1.7;
+      animation: fadeUp 1.5s ease;
+    }
+
+    #about h2 {
+      color: #b64b4b;
+      margin-bottom: 20px;
+    }
+
+    /* MENU */
+    #menu {
+      max-width: 1100px;
+      margin: 50px auto;
+      text-align: center;
+      animation: fadeUp 1.5s ease;
+    }
+
+    #menu h2 {
+      color: #b64b4b;
+      margin-bottom: 30px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .menu-item {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .menu-item h3 {
+      color: #b64b4b;
+      margin-bottom: 5px;
+    }
+
+    .menu-item p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .price {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #b64b4b;
+      font-size: 16px;
+    }
+
+    /* FORMS */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input, form textarea {
+      margin: 10px 0;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color: #b64b4b;
+      outline: none;
+      box-shadow: 0 0 5px #ffd6d6;
+    }
+
+    button {
+      background-color: #b64b4b;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e07a7a;
+    }
+
+    #contact, #login, #register {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeUp 1.5s ease;
+    }
+
+    #contact h2, #login h2, #register h2 {
+      color: #b64b4b;
+      margin-bottom: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #ffd6d6;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      color: #333;
+      margin-top: 50px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+      section {
+        padding: 60px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sweet Haven</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+      <a href="#login">Log In</a>
+      <a href="#register">Register</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Welcome to Sweet Haven!</h2>
+    <p>Where every slice is made with love and sprinkled with happiness. Discover our handcrafted cakes today!</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At <strong>Sweet Haven</strong>, we believe that cakes are more than just desserts—they're expressions of joy and love. Since 2010, we’ve been crafting delectable cakes for birthdays, weddings, and all life’s sweetest celebrations. Our mission is simple: make every occasion unforgettable, one cake at a time. 🍰</p>
+  </section>
+
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1606312619344-ffb67d7e9d60" alt="Chocolate Cake">
+        <h3>Chocolate Fudge Cake</h3>
+        <p>Rich, moist chocolate layers with silky fudge frosting.</p>
+        <div class="price">₱450</div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1603029333193-12bc03feda61" alt="Strawberry Cake">
+        <h3>Strawberry Dream</h3>
+        <p>Fluffy vanilla sponge topped with fresh strawberries and cream.</p>
+        <div class="price">₱420</div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f" alt="Red Velvet">
+        <h3>Red Velvet Delight</h3>
+        <p>Classic red velvet with cream cheese frosting and love.</p>
+        <div class="price">₱480</div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1601972599720-bb77f41fbc00" alt="Cheesecake">
+        <h3>Blueberry Cheesecake</h3>
+        <p>Buttery crust with smooth cream cheese and blueberry topping.</p>
+        <div class="price">₱500</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section id="login">
+    <h2>Log In</h2>
+    <form>
+      <input type="text" placeholder="Username or Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+  </section>
+
+  <section id="register">
+    <h2>Register</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Create Account</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Sweet Haven Cake Shop. All rights reserved.</p>
+  </footer>
+</body>
+</html>
