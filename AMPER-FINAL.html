@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BiteDash</title>
+  <style>
+    /* Reset some default */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #27ae60;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #ecf0f1;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #2ecc71;
+      color: white;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #27ae60;
+      margin-bottom: 15px;
+      font-weight: 700;
+      border-bottom: 3px solid #2ecc71;
+      padding-bottom: 5px;
+      font-size: 2rem;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Home Image */
+    .home-image {
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #34495e;
+    }
+
+    /* Contact and Login forms */
+    form {
+      background-color: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 450px;
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #2c3e50;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 6px;
+      border: 1.8px solid #bdc3c7;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #27ae60;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #27ae60;
+      border: none;
+      padding: 14px;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 700;
+      box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2ecc71;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      padding: 20px 0;
+      text-align: center;
+      color: #95a5a6;
+      font-size: 14px;
+      border-top: 1px solid #ecf0f1;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        margin-bottom: 10px;
+      }
+      nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>BiteDash</h1>
+  <nav>
+    <a href="#" data-page="home" class="active">Home</a>
+    <a href="#" data-page="about">About Us</a>
+    <a href="#" data-page="contact">Contact</a>
+    <a href="#" data-page="login">Login</a>
+  </nav>
+</header>
+
+<div class="container">
+  <!-- Home Page -->
+  <section id="home" class="page active">
+    <h2>Welcome to BiteDash</h2>
+    <p>Delicious food delivered fast and fresh to your doorstep. Discover local restaurants and enjoy your favorite meals from the comfort of home.</p>
+    <img
+      src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+      alt="Delicious food"
+      class="home-image"
+    />
+  </section>
+
+  <!-- About Us Page -->
+  <section id="about" class="page">
+    <h2>About Us</h2>
+    <p>BiteDash is committed to connecting you with the best restaurants in town and delivering fresh, tasty meals right to your door.</p>
+    <p>Our mission is to make food ordering effortless, enjoyable, and reliable so you can focus on what matters most — savoring every bite.</p>
+  </section>
+
+  <!-- Contact Page -->
+  <section id="contact" class="page">
+    <h2>Contact Us</h2>
+    <p>Questions or feedback? We'd love to hear from you!</p>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required placeholder="Your full name" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required placeholder="your.email@example.com" />
+
+      <label for="message">Message:</label>
+      <textarea id="message" required placeholder="Write your message here..."></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Login Page -->
+  <section id="login" class="page">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username or Email:</label>
+      <input type="text" id="username" required placeholder="Enter your username or email" />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required placeholder="Enter your password" />
+
+      <button type="submit">Login</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 BiteDash. All rights reserved.
+</footer>
+
+<script>
+  // Navigation
+  const navLinks = document.querySelectorAll('nav a');
+  const pages = document.querySelectorAll('.page');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetPage = link.getAttribute('data-page');
+
+      pages.forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById(targetPage).classList.add('active');
+
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  // Contact form submission
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert(Thank you for contacting us, ${document.getElementById('name').value}! We will get back to you soon.);
+    this.reset();
+  });
+
+  // Login form submission (mock)
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    if (username && password) {
+      alert(Welcome back, ${username}! (This is just a demo login.));
+      this.reset();
+    }
+  });
+</script>
+
+</body>
+</html>
